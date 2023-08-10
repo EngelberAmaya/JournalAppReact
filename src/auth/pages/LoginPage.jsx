@@ -11,7 +11,7 @@ export const LoginPage = () => {
                 <Grid container>
 
                     <Grid item xs={12} sx={{ mt: 2 }}>
-                        <TextField label="Correo" type="email" placeholder="correo@gamil.com" fullWidth />
+                        <TextField label="Correo" type="email" placeholder="correo@gmail.com" fullWidth />
                     </Grid>
 
                     <Grid item xs={12} sx={{ mt: 2 }}>
