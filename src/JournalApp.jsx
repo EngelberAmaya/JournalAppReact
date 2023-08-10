@@ -1,9 +1,11 @@
+import { AppRouter } from "./router/AppRouter"
+
 const JournalApp = () => {
 
     return (
-        <div>
-            <h1>Hola Mundo</h1>
-        </div>
+        <>
+            <AppRouter />
+        </>
     )
 }
 
