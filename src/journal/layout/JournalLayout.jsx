@@ -1,7 +1,7 @@
 // import { Box, Toolbar } from "@mui/material"
 // import { NavBar, SideBar } from "../components"
 
-import { Box, Container, CssBaseline, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
+import { Box, CssBaseline, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 import { useState } from "react";
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
