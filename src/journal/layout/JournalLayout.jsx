@@ -15,7 +15,7 @@ import { LogoutOutlined, TurnedInNot } from "@mui/icons-material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Grid from '@mui/material/Grid';
 
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -133,6 +133,9 @@ export const JournalLayout = ({ children }) => {
                     }}
                 >
                     <IconButton onClick={toggleDrawer}>
+                        <Typography variant="h6" noWrap component='div'>
+                            Engelber Amaya
+                        </Typography>
                         <ChevronLeftIcon />
                     </IconButton>
                 </Toolbar>
@@ -169,14 +172,15 @@ export const JournalLayout = ({ children }) => {
                     flexGrow: 1,
                     height: '100vh',
                     overflow: 'auto',
+                    p: 3
                 }}
             >
                  <Toolbar />
-                 <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+                 {/* <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}> */}
 
                     { children }
 
-                 </Container>
+                 {/* </Container> */}
             </Box>
 
         </Box>
