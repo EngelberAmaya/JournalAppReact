@@ -1,7 +1,7 @@
 // import { Box, Toolbar } from "@mui/material"
 // import { NavBar, SideBar } from "../components"
 
-import { Box, CssBaseline, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
+import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 import { useState } from "react";
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
@@ -90,7 +90,6 @@ export const JournalLayout = ({ children }) => {
     return (
 
         <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
             <AppBar position="absolute" open={open}>
                 <Toolbar  sx={{ pr: '24px' }}>
                     
