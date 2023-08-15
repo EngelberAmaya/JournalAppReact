@@ -2,11 +2,12 @@ import { Link as RouterLink } from 'react-router-dom'
 import { Button, Grid, Link, TextField, Typography } from "@mui/material"
 import { AuthLayout } from '../layout/AuthLayout'
 import { useForm } from '../../hooks';
+import { useState } from 'react';
 
 const formData = {
-    displayName: 'Engelber Amaya',
-    email: 'engelber@google.com',
-    password: '123456'
+    displayName: '',
+    email: '',
+    password: ''
 }
 
 const formValidations = {
@@ -17,38 +18,44 @@ const formValidations = {
 
 export const RegisterPage = () => {
 
-    const { formState, displayName, email, password, onInputChange,
-        isFormValid, displayNameValid, emailValid, passwordValid
+    const [formSubmitted, setFormSubmitted] = useState(false);
+
+    const { displayName, email, password, onInputChange,
+        /*isFormValid,*/ displayNameValid, emailValid, passwordValid
     } = useForm(formData, formValidations);
 
-    console.log(displayNameValid);
+    //sconsole.log(displayNameValid);
 
     const onSubmit = ( event ) => {
         event.preventDefault();
+        setFormSubmitted(true);
         console.log({displayName, email, password})
     }
     
     return (
-        <AuthLayout title='Crear cuenta'>
+        <AuthLayout title='Crear Cuenta'>
+            {/* <h1>FormValid { isFormValid ? 'válido' : 'Incorrecto' }</h1> */}
             <form onSubmit={onSubmit}>
                 <Grid container>
 
                     <Grid item xs={12} sx={{ mt: 2 }}>
                         <TextField label="Nombre Completo" type="text" placeholder="Nombre Completo" fullWidth
                             name='displayName' value={ displayName } onChange={ onInputChange }
-                            error={ !displayNameValid } helperText={ displayNameValid }
+                            error={ !!displayNameValid && formSubmitted } helperText={ displayNameValid }
                         />
                     </Grid>
 
                     <Grid item xs={12} sx={{ mt: 2 }}>
                         <TextField label="Correo" type="email" placeholder="correo@gmail.com" fullWidth
                             name='email' value={ email } onChange={ onInputChange }
+                            error={ !!emailValid && formSubmitted} helperText={ emailValid }
                         />
                     </Grid>
 
                     <Grid item xs={12} sx={{ mt: 2 }}>
                         <TextField label="Contraseña" type="password" placeholder="Contraseña" fullWidth
                             name='password' value={ password } onChange={ onInputChange }
+                            error={ !!passwordValid && formSubmitted } helperText={ passwordValid }
                         />
                     </Grid>
 
