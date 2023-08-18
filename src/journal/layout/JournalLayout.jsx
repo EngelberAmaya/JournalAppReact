@@ -14,8 +14,10 @@ import Typography from '@mui/material/Typography';
 import { LogoutOutlined, TurnedInNot } from "@mui/icons-material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Grid from '@mui/material/Grid';
+import { useDispatch, useSelector } from 'react-redux'
+import { startLogout } from "../../store/auth";
 
-const drawerWidth = 260;
+const drawerWidth = 270;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -81,11 +83,23 @@ export const JournalLayout = ({ children }) => {
     //     </Box>
     
     // </Box>
+
+    const dispatch = useDispatch();
+
+    const { displayName } = useSelector(state => state.auth)
     
     const [open, setOpen] = useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
     };
+
+
+    const onLogout = () => {
+        //console.log('onLogout');
+        dispatch(startLogout());
+    }
+
+
 
     return (
 
@@ -115,7 +129,7 @@ export const JournalLayout = ({ children }) => {
                         JournalApp
                     </Typography>
 
-                    <IconButton color="error">
+                    <IconButton color="error" onClick={onLogout}>
                         <LogoutOutlined />
                     </IconButton>
 
@@ -132,8 +146,8 @@ export const JournalLayout = ({ children }) => {
                     }}
                 >
                     <IconButton onClick={toggleDrawer}>
-                        <Typography variant="h6" noWrap component='div'>
-                            Engelber Amaya
+                        <Typography variant="h6" noWrap component='div' sx={{ fontSize: 18}}>
+                            {displayName}
                         </Typography>
                         <ChevronLeftIcon />
                     </IconButton>
